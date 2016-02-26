@@ -20,6 +20,7 @@ public:
 	{
 	  
 	}
+
 	 Fraction getFract()
 	{
 		cout << "Enter the numerator " << endl;
