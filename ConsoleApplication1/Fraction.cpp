@@ -1,5 +1,7 @@
 #ifndef FRACTION_H
 #define FRACTION_H
+#include <iostream>
+using namespace std;
 class Fraction
 {
 private:
@@ -18,17 +20,27 @@ public:
 	{
 	  
 	}
-	void getFract(int, int)
+	 Fraction getFract()
 	{
-
+		cout << "Enter the numerator " << endl;
+		cin >> numerator;
+		cout << "Enter the denominator" << endl;
+		cin >> denominator;
+		return Fraction(numerator , denominator);
 	}
 	Fraction fadd(Fraction add)
 	{
+		numerator = numerator * add.denominator + add.numerator * denominator;
+		denominator = denominator * add.denominator;
+		return add;
 
 	}
 	Fraction fsubtract(Fraction subtract)
 	{
-      
+		numerator = numerator * subtract.denominator - subtract.numerator * denominator;
+		denominator = denominator * subtract.denominator;
+		return subtract;
+
 	}
 	Fraction fmultiply(Fraction multiply)
 	{
