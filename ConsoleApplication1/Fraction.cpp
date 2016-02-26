@@ -1,4 +1,4 @@
-#ifndef FRACTION_H
+ #ifndef FRACTION_H
 #define FRACTION_H
 #include <iostream>
 using namespace std;
@@ -16,9 +16,10 @@ public:
 		num = numerator;
 		denom = denominator; 
     }
-	void setFract(int, int)
+	Fraction setFract(int, int)
 	{
-	  
+		this -> numerator = numerator;
+		this -> denominator = denominator;
 	}
 
 	 Fraction getFract()
@@ -54,6 +55,17 @@ public:
 		numerator = numerator * divide.denominator;
 		denominator = denominator * divide.numerator;
 		return divide;
+	}
+	void Fraction::print()
+	{
+		int a, b;
+		if (numerator > denominator)
+		{
+			a = numerator / denominator;
+			b = numerator % denominator;
+			cout << "The answer is:" << a << " / " << b << endl;
+		}
+		else cout << "The answer is:" << numerator << " / " << denominator << endl;
 	}
    };
 #endif
