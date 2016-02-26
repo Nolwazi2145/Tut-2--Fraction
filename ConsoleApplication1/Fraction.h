@@ -10,7 +10,7 @@ private:
 public:
 	Fraction( int num = 0 , int denom = 1);
 	~Fraction();
-	Fraction setFract(int, int);
+	Fraction setFract();
 	Fraction getFract();
 	Fraction fadd(Fraction add);
 	Fraction fsubtract(Fraction subtract);

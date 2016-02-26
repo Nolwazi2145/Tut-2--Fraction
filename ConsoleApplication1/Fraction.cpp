@@ -22,13 +22,13 @@ public:
 		this -> denominator = denominator;
 	}
 
-	 Fraction getFract()
+     void getFract(int , int)
 	{
 		cout << "Enter the numerator " << endl;
 		cin >> numerator;
 		cout << "Enter the denominator" << endl;
 		cin >> denominator;
-		return Fraction(numerator , denominator);
+		return 0;
 	}
 	Fraction fadd(Fraction add)
 	{
