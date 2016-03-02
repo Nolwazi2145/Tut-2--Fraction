@@ -1,71 +1,95 @@
- #ifndef FRACTION_H
-#define FRACTION_H
+
+#include "fraction.h"
 #include <iostream>
-using namespace std;
-class Fraction
+		 using namespace std;
+
+int main()
 {
-private:
 
-	int numerator;
-	int denominator;
+	Fraction f1, f2, f3, f4, f5, f6, p;
+	int a, b, c, d;
+	cout << "The answer displayed will be the sum, difference, product and the division.\n " << endl;
+	cout << "enter first fraction:" << endl;
+	cin >> a >> b;
+	cout << "enter second fraction:" << endl;
+	cin >> c >> d;
+	p.setFract(a, b);
+	f1 = p.getFract();
+	p.setFract(c, d);
+	f2 = p.getFract();
+	f3 = f1.fadd(f2); //Adds the two fractions;     
+	f3.print();
+	f4 = f1.fsubtract(f2); //Subtracts the two fractions    
+	f4.print();
+	f5 = f1.fmultiply(f2); //Multiplies the two fractions     
+	f5.print();
+	f6 = f1.fdivide(f2); //Divides the two fractions    
+	f6.print();
+	return 0;
+}
 
-public:
-	~Fraction();
-	Fraction(int num = 0, int denom = 1)
-	{  
-		num = numerator;
-		denom = denominator; 
-    }
-	Fraction setFract(int, int)
-	{
-		this -> numerator = numerator;
-		this -> denominator = denominator;
-	}
+Fraction::~Fraction()
+{
 
-     void getFract(int , int)
-	{
-		cout << "Enter the numerator " << endl;
-		cin >> numerator;
-		cout << "Enter the denominator" << endl;
-		cin >> denominator;
-		return 0;
-	}
-	Fraction fadd(Fraction add)
-	{
-		numerator = numerator * add.denominator + add.numerator * denominator;
-		denominator = denominator * add.denominator;
-		return add;
+}
 
-	}
-	Fraction fsubtract(Fraction subtract)
+Fraction::Fraction(int a, int b)
+{
+	setFract(a, b);
+}
+void Fraction::setFract(int a, int b)
+{
+	if (b != 0)
 	{
-		numerator = numerator * subtract.denominator - subtract.numerator * denominator;
-		denominator = denominator * subtract.denominator;
-		return subtract;
+		denominator = b;
+		numerator = a;
+	}
+	else
+	{
+		cout << "division by zero aint allowed" << endl;
+		exit(1);
+	}
+}
 
-	}
-	Fraction fmultiply(Fraction multiply)
-	{
-		numerator = numerator * multiply.numerator;
-		denominator = denominator * multiply.denominator;
-		return multiply;
-	}
-	Fraction fdivide(Fraction divide)
-	{
-		numerator = numerator * divide.denominator;
-		denominator = denominator * divide.numerator;
-		return divide;
-	}
-	void Fraction::print()
-	{
-		int a, b;
-		if (numerator > denominator)
-		{
-			a = numerator / denominator;
-			b = numerator % denominator;
-			cout << "The answer is:" << a << " / " << b << endl;
-		}
-		else cout << "The answer is:" << numerator << " / " << denominator << endl;
-	}
-   };
-#endif
+
+Fraction Fraction::getFract()
+{
+	Fraction f;
+	f.denominator = denominator;
+	f.numerator = numerator;
+	return  f;
+}
+Fraction Fraction::fadd(Fraction add)
+{
+	Fraction f;
+	f.numerator = numerator * add.denominator + add.numerator * denominator;
+	f.denominator = denominator * add.denominator;
+	return f;
+
+}
+Fraction Fraction::fsubtract(Fraction subtract)
+{
+	Fraction f;
+	f.numerator = numerator * subtract.denominator - subtract.numerator * denominator;
+	f.denominator = denominator * subtract.denominator;
+	return f;
+
+}
+Fraction Fraction::fmultiply(Fraction multiply)
+{
+	Fraction f;
+	f.numerator = numerator * multiply.numerator;
+	f.denominator = denominator * multiply.denominator;
+	return f;
+}
+Fraction Fraction::fdivide(Fraction divide)
+{
+	Fraction f;
+	f.numerator = numerator * divide.denominator;
+	f.denominator = denominator * divide.numerator;
+	return f;
+}
+void Fraction::print()
+{
+	cout << "The answer is:" << numerator << " / " << denominator << endl;
+}

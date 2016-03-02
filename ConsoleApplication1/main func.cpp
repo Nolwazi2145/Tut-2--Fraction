@@ -1,21 +1,24 @@
-#include <iostream>
-#include "fraction.h"
-using namespace std;
+#ifndef FRACTION_H   
+#define FRACTION_H
+class Fraction
+{
+private:
 
-int main()
-	{
 
-		Fraction f1, f2, f3, f4, f5, f6;
-		cout << "The answer displayed will be the sum, difference, product and the division.\n " << endl;
-		f1 = getFract();
-		f2 = getFract();
-		f3 = f1.fadd(f2); //Adds the two fractions;  
-		f3.print();
-		f4 = f1.fsubtract(f2); //Subtracts the two fractions 
-		f4.print();
-		f5 = f1.fmultiply(f2); //Multiplies the two fractions  
-		f5.print();
-		f6 = f1.fdivide(f2); //Divides the two fractions 
-		return 0;
-		
-	}
+	int numerator;
+	int denominator;
+
+public:
+	Fraction(int num = 0, int denom = 1);
+	~Fraction();
+	void setFract(int, int);
+	Fraction getFract();
+	Fraction fadd(Fraction add);
+	Fraction fsubtract(Fraction subtract);
+	Fraction fmultiply(Fraction multiply);
+	Fraction fdivide(Fraction divide);
+	void print();
+
+
+};
+#endif
